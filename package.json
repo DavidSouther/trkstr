@@ -1,0 +1,35 @@
+{
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "test": "grunt",
+    "features": "grunt features",
+    "rename": "echo 'Coming Soon!'"
+  },
+  "dependencies": {
+    "rupert": "^0.2.5",
+    "rupert-config-angular": "^0.0.3",
+    "rupert-config-bootstrap": "^0.0.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "rupert-grunt": "^0.0.14"
+  },
+  "name": "trkstr",
+  "description": "trkstr ======",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joesepi/trkstr.git"
+  },
+  "keywords": [
+    "awesome"
+  ],
+  "author": "joe sepi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joesepi/trkstr/issues"
+  },
+  "homepage": "https://github.com/joesepi/trkstr"
+}
