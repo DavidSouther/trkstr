@@ -1,5 +1,5 @@
-angular.module('rupert-app.head-controller', [
-    'rupert-app.title-service'
+angular.module('trkstr.head-controller', [
+  'trkstr.title-service'
 ]).controller('HeadCtrl', function($scope, TitleSvc){
-    $scope.title = TitleSvc.title;
+  $scope.title = TitleSvc.title;
 });

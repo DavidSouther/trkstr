@@ -1,3 +1,4 @@
-angular.module('rupert-app', [
-    'rupert-app.head-controller'
+angular.module('trkstr', [
+  'ngMaterial',
+  'trkstr.head-controller'
 ]);
