@@ -3,7 +3,7 @@
   "node": false,
   "camelcase": false,
   "eqeqeq": true,
-  "indent": 4,
+  "indent": 2,
   "quotmark": "single",
   "newcap": true,
   "trailing": true,
