@@ -2,11 +2,17 @@
   "stassets": {
     "verbose": true,
     "root": "./src/client",
+    "scripts": {
+      "types": [
+        "store", "actions"
+      ]
+    },
     "vendors": {
       "prefix": ["./src/vendors", "./node_modules"],
       "js": [
         "EventEmitter.js",
-        "song-dispatcher/song-dispatcher.js"
+        "song-dispatcher/song-dispatcher.js",
+        "immutable.min.js"
       ],
       "css": []
     },
