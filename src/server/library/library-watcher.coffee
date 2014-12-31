@@ -42,10 +42,8 @@ class LibraryWatcher extends AssetWatcher
     library = {}
 
     _.forEach (listing)->
-      library[listing.artist] or= {}
-      artist = library[listing.artist]
-      artist[listing.album] or= []
-      album = artist[listing.album]
+      artist = library[listing.artist] or= {}
+      album = artist[listing.album] or= []
       album[listing.track] or=
         title: listing.title
         format: listing.format
