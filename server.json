@@ -14,7 +14,7 @@
   "tls": false,
   "routing": [
     "./src/server/allow.coffee",
-    "./src/server/**/route.coffee"
+    "./src/server/**/*route.coffee"
   ],
   "static": {
     "img": "./src/assets/img"
