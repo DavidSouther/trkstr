@@ -3,8 +3,11 @@
     "verbose": true,
     "root": "./src/client",
     "vendors": {
-      "prefix": [],
-      "js": [],
+      "prefix": ["./src/vendors", "./node_modules"],
+      "js": [
+        "EventEmitter.js",
+        "song-dispatcher/song-dispatcher.js"
+      ],
       "css": []
     },
     "material": {

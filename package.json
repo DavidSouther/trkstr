@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "rupert": "^0.2.5",
-    "rupert-config-angular-material": "^0.0.3"
+    "rupert-config-angular-material": "^0.0.5"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
