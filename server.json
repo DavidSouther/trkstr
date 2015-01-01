@@ -26,6 +26,7 @@
     "./src/server/**/*route.coffee"
   ],
   "static": {
-    "img": "./src/assets/img"
+    "img": "./src/assets/img",
+    "/": "./music"
   }
 }
