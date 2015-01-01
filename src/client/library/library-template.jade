@@ -19,7 +19,7 @@ md-list
           ng-show="state.shown[artist.name]"
           ng-repeat="album in artist.albums"
         )
-          h4 {{ album.title }}
+          h4 {{ album.name }}
           ol
             li(
               ng-repeat="track in album.tracks.toArray()"
