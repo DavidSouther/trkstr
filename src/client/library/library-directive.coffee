@@ -4,7 +4,11 @@ class LibraryController
     @Library.on @Library.Events.DataChanged, @update.bind @
 
   update: ->
+    @shown = {}
     @artists = @Library.artists
+
+  toggle: (name)->
+    @shown[name] = !@shown[name]
 
 LibraryController.$inject = [
   'TrkstrLibrary'

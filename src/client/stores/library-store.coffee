@@ -34,12 +34,11 @@ LibraryFactory = ($http, Actions, dispatcher)->
           name,
           tracks: Immutable.List()
         }
-        for track in tracks
-          if track?
-            album.tracks = album.tracks.push track
+        for track in tracks when track?
+          album.tracks = album.tracks.push track
         artist.albums = artist.albums.add album
 
-      @artists = @artists.add Immutable.fromJS {artist, albums}
+      @artists = @artists.add Immutable.fromJS artist
 
   Library.Events =
     DataLoded: 'DataLoaded'

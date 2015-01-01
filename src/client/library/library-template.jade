@@ -1,1 +1,26 @@
-pre {{ state.artists }}
+md-list
+  md-item(ng-repeat="artist in state.artists.toArray()")
+    md-item-content(
+      ng-init="artist = artist.toJS()"
+    )
+      .md-tile-left
+        img(
+          ng-show="artist.face"
+          ng-src="{{artist.face}}"
+          class="face"
+          alt="{{artist.name}}"
+        )
+      .md-tile-content
+        h3 {{ artist.name }}
+        h4(
+          ng-click="state.toggle(artist.name)"
+        ) {{ artist.albums.length }} albums
+        md-card(
+          ng-show="state.shown[artist.name]"
+          ng-repeat="album in artist.albums"
+        )
+          h4 {{ album.title }}
+          ol
+            li(
+              ng-repeat="track in album.tracks.toArray()"
+            ) {{ track.title }}
