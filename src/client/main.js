@@ -3,13 +3,11 @@ angular.module('trkstr', [
   'trkstr.head-controller',
   'trkstr.actions',
   'trkstr.stores.library',
+  'trkstr.library.directive'
 ])
 .controller('AppCtrl', function($scope, $timeout, $mdSidenav) {
   $scope.toggleMenu = function(){
     $mdSidenav().toggle();
   };
-})
-.run(function(TrkstrLibrary, TrkstrActions){
-  (new TrkstrActions.LoadAction()).dispatch();
 })
 ;

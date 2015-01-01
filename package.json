@@ -7,7 +7,7 @@
     "rename": "echo 'Coming Soon!'"
   },
   "dependencies": {
-    "rupert": "^0.2.5",
+    "rupert": "^0.2.7",
     "rupert-config-angular-material": "^0.0.5"
   },
   "devDependencies": {
