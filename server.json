@@ -8,10 +8,10 @@
       ]
     },
     "vendors": {
-      "prefix": ["./src/vendors", "./node_modules"],
+      "prefix": ["./src/vendors"],
       "js": [
         "EventEmitter.js",
-        "song-dispatcher/song-dispatcher.js",
+        "song-dispatcher.js",
         "immutable.min.js"
       ],
       "css": []
