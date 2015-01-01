@@ -23,4 +23,5 @@ md-list
           ol
             li(
               ng-repeat="track in album.tracks.toArray()"
+              ng-click="state.play(track)"
             ) {{ track.title }}

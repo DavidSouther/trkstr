@@ -4,7 +4,7 @@
     "root": "./src/client",
     "scripts": {
       "types": [
-        "store", "actions"
+        "store", "actions", "component"
       ]
     },
     "vendors": {

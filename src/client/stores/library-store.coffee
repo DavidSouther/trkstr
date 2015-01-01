@@ -1,13 +1,4 @@
-LibraryFactory = ($http, Actions, dispatcher)->
-
-  class Store extends EventEmitter
-    constructor: ->
-      super()
-      @dispatcher = dispatcher.get('trkstr')
-
-    register: (ActionCtor, fn)->
-      @dispatcher.register ActionCtor, fn.bind @
-
+LibraryFactory = ($http, Actions, Store)->
   class Library extends Store
     constructor: ->
       super()
@@ -49,11 +40,12 @@ LibraryFactory = ($http, Actions, dispatcher)->
 LibraryFactory.$inject = [
   '$http'
   'TrkstrActions'
-  'songDispatcherFactory'
+  'TrkstrStore'
 ]
 
 angular.module('trkstr.stores.library', [
   'trkstr.actions'
+  'trkstr.stores.base'
 ])
 .factory 'TrkstrLibrary', LibraryFactory
 .run (TrkstrLibrary, TrkstrActions)->

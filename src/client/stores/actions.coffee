@@ -1,7 +1,8 @@
 TrkstrActionsFactory = (dispatcher)->
   class Action
     constructor: ->
-      @dispatcher = dispatcher.get(@module or 'trkstr')
+      @module or= 'trkstr'
+      @dispatcher = dispatcher.get @module
     dispatch: ->
       @dispatcher.dispatch @
 
@@ -11,8 +12,15 @@ TrkstrActionsFactory = (dispatcher)->
       @purpose = "Request dispatched stores refresh their in-memory data."
       super()
 
+  class PlayAction extends Action
+    constructor: (@track)->
+      @module = 'trkstr'
+      @purpose = 'Request a track be played.'
+      super()
+
   {
     LoadAction
+    PlayAction
   }
 
 TrkstrActionsFactory.$inject = [
