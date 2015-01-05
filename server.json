@@ -2,9 +2,18 @@
   "stassets": {
     "verbose": true,
     "root": "./src/client",
+    "scripts": {
+      "types": [
+        "store", "actions", "component"
+      ]
+    },
     "vendors": {
-      "prefix": [],
-      "js": [],
+      "prefix": ["./src/vendors"],
+      "js": [
+        "EventEmitter.js",
+        "song-dispatcher.js",
+        "immutable.min.js"
+      ],
       "css": []
     },
     "material": {
@@ -14,9 +23,10 @@
   "tls": false,
   "routing": [
     "./src/server/allow.coffee",
-    "./src/server/**/route.coffee"
+    "./src/server/**/*route.coffee"
   ],
   "static": {
-    "img": "./src/assets/img"
+    "img": "./src/assets/img",
+    "/": "./music"
   }
 }

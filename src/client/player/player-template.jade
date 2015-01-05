@@ -1,0 +1,7 @@
+div.Player
+  pre.title playing {{ state.track.title }}
+  audio(
+    ng-if="state.track.path"
+    autoplay, controls
+    ng-src="{{ state.track.path }}"
+  )
