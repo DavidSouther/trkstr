@@ -1,17 +1,17 @@
-StoreFactory = (dispatcher)->
+StoreFactory = (song)->
   class Store extends EventEmitter
     constructor: ->
       super()
       @module or= 'trkstr'
-      @dispatcher = dispatcher.get(@module)
+      @dispatcher = song.getDispatcher(@module)
 
     register: (ActionCtor, fn)->
       @dispatcher.register ActionCtor, fn.bind @
 
 StoreFactory.$inject = [
-  'songDispatcherFactory'
+  'songFactory'
 ]
 
 angular.module('trkstr.stores.base', [
-  'songDispatcher'
+  'songFlux'
 ]).factory 'TrkstrStore', StoreFactory

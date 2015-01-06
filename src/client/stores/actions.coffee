@@ -1,8 +1,8 @@
-TrkstrActionsFactory = (dispatcher)->
+TrkstrActionsFactory = (song)->
   class Action
     constructor: ->
       @module or= 'trkstr'
-      @dispatcher = dispatcher.get @module
+      @dispatcher = song.getDispatcher @module
     dispatch: ->
       @dispatcher.dispatch @
 
@@ -24,9 +24,9 @@ TrkstrActionsFactory = (dispatcher)->
   }
 
 TrkstrActionsFactory.$inject = [
-  'songDispatcherFactory'
+  'songFactory'
 ]
 
 angular.module('trkstr.actions', [
-  'songDispatcher'
+  'songFlux'
 ]).factory 'TrkstrActions', TrkstrActionsFactory
