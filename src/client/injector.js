@@ -1,4 +1,5 @@
 var _module = angular.module;
+var _slice = Array.prototype.slice;
 angular.module = function(name, dependencies){
   var module = null;
   if(!(dependencies instanceof Array)){
@@ -32,7 +33,6 @@ angular.module = function(name, dependencies){
       directive.scope = directive.scope || {};
       directive.restrict = directive.restrict || 'EA';
 
-
       directive.replace = false;
       directive.controllerAs = 'state';
       directive.bindToController = true;
@@ -40,9 +40,41 @@ angular.module = function(name, dependencies){
       return directive;
     });
 
-
     return module;
-  }
+  };
+
+  module.store = module.store || function(name, StoreConstructor){
+    var injectables = StoreConstructor.$inject || [];
+    injectables.push('songFactory');
+    StoreFactory.$inject = injectables;
+    function StoreFactory(){
+      var song = arguments[arguments.length - 1];
+      var args = _slice.call(arguments, 0, arguments.length - 1);
+
+      StoreConstructor.prototype.getDispatcher = function(){
+        this.dispatcher = this.dispatcher || song.getDispatcher(this.module);
+        return this.dispatcher;
+      };
+
+      StoreConstructor.prototype.register = function(ActionCtor, fn){
+        this.getDispatcher().register(ActionCtor, fn.bind(this));
+      };
+
+      function StoreConstructorApply(){
+        var store = StoreConstructor.apply(this, args);
+        EventEmitter.call(this);
+      }
+      StoreConstructorApply.prototype = StoreConstructor.prototype;
+      for(var m in EventEmitter.prototype){
+        StoreConstructorApply.prototype[m] = EventEmitter.prototype[m];
+      }
+
+      return new StoreConstructorApply();
+    }
+
+    module.factory(name, StoreFactory);
+    return module;
+  };
 
   return module;
 };
