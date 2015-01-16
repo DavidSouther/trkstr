@@ -22,16 +22,6 @@ class LibraryDirective
   constructor: ->
     @controller = LibraryController
     @templateUrl = 'library'
-    @replace = no
-    @restrict = 'E'
-    @controllerAs = 'state'
-    @bindToController = yes
-    @scope = {}
-
-LibraryDirective.factory = ->
-  new LibraryDirective()
-
-LibraryDirective.factory.$inject = []
 
 angular.module('trkstr.library.directive', [
   'trkstr.actions',
@@ -39,4 +29,4 @@ angular.module('trkstr.library.directive', [
 
   'library.template',
   'ngMaterial'
-]).directive 'library', LibraryDirective.factory
+]).component 'library', LibraryDirective

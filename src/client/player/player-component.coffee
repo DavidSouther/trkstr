@@ -15,17 +15,7 @@ class PlayerDirective
     @controller = PlayerController
     @templateUrl = 'player'
 
-    @replace = no
-    @restrict = 'E'
-    @controllerAs = 'state'
-    @bindToController = yes
-    @scope = {}
-
-PlayerDirective.factory = ->
-  new PlayerDirective()
-PlayerDirective.factory.$inject = []
-
 angular.module('trkstr.player.component', [
   'trkstr.stores.player'
   'player.template'
-]).directive 'player', PlayerDirective.factory
+]).component 'player', PlayerDirective

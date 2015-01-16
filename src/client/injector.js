@@ -25,5 +25,24 @@ angular.module = function(name, dependencies){
     return module;
   };
 
+  module.component = module.component || function(name, ComponentCtor){
+    module.directive(name, function(){
+      var directive = new ComponentCtor();
+
+      directive.scope = directive.scope || {};
+      directive.restrict = directive.restrict || 'EA';
+
+
+      directive.replace = false;
+      directive.controllerAs = 'state';
+      directive.bindToController = true;
+
+      return directive;
+    });
+
+
+    return module;
+  }
+
   return module;
 };
