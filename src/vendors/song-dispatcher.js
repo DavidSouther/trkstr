@@ -140,5 +140,41 @@
     };
   });
 
+  songFlux.provider('SongFluxAction', function(){
+    var songFactory = {
+      getDispatcher: function(){
+        throw new Error('Not yet injected.');
+      }
+    };
+
+    function action(Action){
+      function Base(){
+        Action.apply(this, arguments);
+        angular.extend(Action.prototype, Base.prototype);
+        this.__proto__ = Action.prototype;
+        this.dispatcher = songFactory.getDispatcher(this.module);
+      }
+
+      Base.prototype = {
+        dispatch: function(){
+          this.dispatcher.dispatch(this);
+        }
+      };
+
+      return Base;
+    };
+
+    this.createActions = function(Actions){
+      for(var name in Actions){
+        Actions[name] = action(Actions[name]);
+      }
+    };
+
+    this.$get = ['songFactory', function(factory){
+      songFactory = factory;
+      return {};
+    }];
+  }).run(['SongFluxAction', function(){}]);
+
   return songFlux;
 }));
