@@ -1,9 +1,9 @@
-LibraryFactory = ($http, Actions, Store)->
+LibraryFactory = ($http, LoadAction, Store)->
   class Library extends Store
     constructor: ->
       super()
       @artists = Immutable.Set()
-      @doLoad = @register Actions.LoadAction, @load
+      @doLoad = @register LoadAction, @load
       @Events = Library.Events
 
     load: ->
@@ -39,7 +39,7 @@ LibraryFactory = ($http, Actions, Store)->
 
 LibraryFactory.$inject = [
   '$http'
-  'TrkstrActions'
+  'LoadAction'
   'TrkstrStore'
 ]
 
@@ -47,6 +47,8 @@ angular.module('trkstr.stores.library', [
   'trkstr.actions'
   'trkstr.stores.base'
 ])
+# .store 'TrkstrLibrary', Library
+.run (TrkstrLibrary, LoadAction)->
+  (new LoadAction()).dispatch()
+
 .factory 'TrkstrLibrary', LibraryFactory
-.run (TrkstrLibrary, TrkstrActions)->
-  (new TrkstrActions.LoadAction()).dispatch()

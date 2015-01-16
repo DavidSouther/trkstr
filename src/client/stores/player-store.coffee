@@ -1,9 +1,9 @@
-PlayerFactory = (Actions, Store)->
+PlayerFactory = (PlayAction, Store)->
   class PlayerStore extends Store
     constructor: ->
       super()
       @currentTrack = title: "Nothing Playing..."
-      @doPlay = @register Actions.PlayAction, @play
+      @doPlay = @register PlayAction, @play
       @Events = PlayerStore.Events
 
     play: (playAction)->
@@ -16,7 +16,7 @@ PlayerFactory = (Actions, Store)->
   new PlayerStore()
 
 PlayerFactory.$inject = [
-  'TrkstrActions'
+  'PlayAction'
   'TrkstrStore'
 ]
 

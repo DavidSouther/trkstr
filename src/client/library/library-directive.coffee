@@ -1,5 +1,5 @@
 class LibraryController
-  constructor: (@Library, @Actions)->
+  constructor: (@Library, @PlayAction)->
     @artists = @Library.artists
     @Library.on @Library.Events.DataChanged, @update.bind @
 
@@ -11,11 +11,11 @@ class LibraryController
     @shown[name] = !@shown[name]
 
   play: (track)->
-    (new @Actions.PlayAction(track)).dispatch()
+    (new @PlayAction(track)).dispatch()
 
 LibraryController.$inject = [
   'TrkstrLibrary'
-  'TrkstrActions'
+  'PlayAction'
 ]
 
 class LibraryDirective
