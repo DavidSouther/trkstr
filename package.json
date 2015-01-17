@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "rupert": "^0.2.7",
-    "rupert-config-angular-material": "^0.0.5"
+    "rupert-config-angular-material": "^0.0.5",
+    "song-flux": "^0.1.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
